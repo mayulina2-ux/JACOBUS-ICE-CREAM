@@ -1,0 +1,180 @@
+.wrap {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.scroller {
+  /* Posicionado para que el texto oculto (.visually-hidden) no escape del scroll */
+  position: relative;
+  overflow-x: auto;
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-hard);
+  background: var(--surface-raised);
+  scrollbar-color: var(--ink) transparent;
+}
+
+.table {
+  width: 100%;
+  min-width: var(--table-min-w);
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+.caption {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+  border-bottom: var(--border-w) solid var(--border);
+}
+
+.th {
+  padding: var(--space-3) var(--space-4);
+  background: var(--ink);
+  color: var(--surface);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-bottom: var(--underline-w) solid var(--ink);
+}
+
+.th :focus-visible {
+  outline-color: var(--focus-ring-on-chrome);
+}
+
+/* Columna activa: subrayado neón */
+.th.active {
+  border-bottom-color: var(--neon-pink);
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.sortIcon {
+  font-size: var(--text-label-size);
+}
+
+.td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font-weight: var(--weight-regular);
+  vertical-align: middle;
+  border-bottom: var(--border-w) solid var(--border);
+}
+
+.even > * {
+  background: var(--surface);
+}
+
+.odd > * {
+  background: var(--surface-raised);
+}
+
+tbody tr:last-child > .td {
+  border-bottom: 0;
+}
+
+.activeCell {
+  font-weight: var(--weight-bold);
+}
+
+.num {
+  text-align: right;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.th.num .sortButton {
+  flex-direction: row-reverse;
+}
+
+/* Primera columna fija al hacer scroll horizontal */
+.table tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: var(--border-w) solid var(--border);
+}
+
+.empty {
+  padding: var(--space-10) var(--space-4);
+  text-align: center;
+}
+
+/* Línea de corte discontinua del ranking */
+.cutRow > .cut {
+  position: static;
+  padding: 0;
+  background: var(--surface);
+  border-bottom: var(--border-w-thick) dashed var(--ink);
+  border-right: 0;
+}
+
+.cutLabel {
+  position: sticky;
+  left: 0;
+  display: inline-block;
+  /* Cabe en la parte visible del scroll aunque la tabla sea más ancha */
+  max-width: calc(100vw - 2 * var(--gutter) - var(--space-10));
+  margin: var(--space-1) var(--space-4);
+  padding: var(--space-1) var(--space-2);
+  background: var(--neon-lime);
+  color: var(--on-color);
+  border: var(--border-w) solid var(--on-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pageInfo {
+  font-family: var(--font-mono);
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+  color: var(--ink-muted);
+}
+
+.pageButton {
+  composes: pressable from "../../styles/pressable.module.css";
+  min-height: var(--control-h-sm);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+}

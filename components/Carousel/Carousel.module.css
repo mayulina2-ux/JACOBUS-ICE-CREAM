@@ -1,0 +1,97 @@
+.carousel {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+}
+
+.title {
+  flex: 1 1 14ch;
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-leading);
+}
+
+.controls {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: var(--space-2);
+  flex: none;
+}
+
+.more {
+  margin-right: var(--space-2);
+  color: var(--accent-text);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+  text-underline-offset: var(--space-1);
+}
+
+/* Flecha circular con borde y sombra dura */
+.arrow {
+  composes: pressable from "../../styles/pressable.module.css";
+  display: grid;
+  place-items: center;
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  padding: 0;
+  border-radius: var(--radius-round);
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--space-2);
+  overscroll-behavior-x: contain;
+  /* Aire para que la sombra dura y el hover no se corten */
+  padding: var(--space-2) var(--space-2) var(--space-4);
+  margin: calc(-1 * var(--space-2));
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+
+.track:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-w));
+}
+
+.flavor {
+  grid-auto-columns: var(--flavor-card-w);
+}
+
+.media {
+  grid-auto-columns: var(--media-card-w);
+}
+
+.family {
+  grid-auto-columns: var(--media-card-w);
+}
+
+.slide {
+  scroll-snap-align: start;
+  display: flex;
+}
+
+.slide > * {
+  flex: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .track {
+    scroll-behavior: smooth;
+  }
+}

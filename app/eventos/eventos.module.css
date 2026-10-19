@@ -1,0 +1,212 @@
+.browser,
+.loading {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.weekSwitch,
+.kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.weekButton,
+.kindButton {
+  min-height: var(--control-h-sm);
+  padding: 0 var(--space-4);
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+  cursor: pointer;
+}
+
+.weekButton:hover,
+.kindButton:hover {
+  box-shadow: var(--shadow-hard);
+}
+
+.weekButton[aria-pressed="true"],
+.kindButton[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+/* ---------- Días en tarjetas ---------- */
+.days {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--day-card-w);
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-1) var(--space-2) var(--space-3) var(--space-1);
+  scrollbar-width: thin;
+}
+
+.loading .days > * {
+  min-height: var(--space-16);
+}
+
+.day {
+  composes: pressable from "../../styles/pressable.module.css";
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+
+.day[aria-pressed="true"] {
+  background: var(--neon-pink);
+  color: var(--on-color);
+  border-color: var(--on-color);
+}
+
+.past:not([aria-pressed="true"]) {
+  background: var(--surface);
+  color: var(--ink-muted);
+  box-shadow: var(--shadow-none);
+}
+
+.dayShort {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+}
+
+.dayNum {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-leading);
+}
+
+.dayCount {
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+.todayMark {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  padding: 0 var(--space-1);
+  background: var(--ink);
+  color: var(--surface);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  text-transform: uppercase;
+}
+
+/* ---------- Listado ---------- */
+.list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.empty {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+  padding: var(--space-10) var(--space-4);
+  text-align: center;
+  border: var(--border-w-thick) dashed var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.events {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.event {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface-raised);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-hard);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-price-size);
+  line-height: var(--text-price-leading);
+}
+
+.eventBody {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.eventTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.eventTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-leading);
+}
+
+.eventMeta {
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-price-size);
+  line-height: var(--text-price-leading);
+}
+
+.full {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+  text-decoration: line-through;
+  text-decoration-thickness: var(--border-w);
+}
+
+@media (min-width: 768px) {
+  .days {
+    grid-auto-flow: initial;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .event {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .eventMeta {
+    justify-items: end;
+    text-align: right;
+  }
+}

@@ -1,0 +1,41 @@
+.scoop {
+  overflow: visible;
+  flex: none;
+}
+
+.mini {
+  width: var(--scoop-mini);
+  height: auto;
+}
+
+.card {
+  width: var(--scoop-card);
+  height: auto;
+}
+
+.hero {
+  width: var(--scoop-hero);
+  height: auto;
+}
+
+.ball {
+  fill: var(--scoop-color);
+  stroke: var(--on-color);
+  stroke-width: var(--border-w-thick);
+  stroke-linejoin: round;
+}
+
+.cone {
+  fill: var(--pastel-vanilla);
+  stroke: var(--on-color);
+  stroke-width: var(--border-w-thick);
+  stroke-linejoin: round;
+}
+
+.line,
+.shine {
+  fill: none;
+  stroke: var(--on-color);
+  stroke-width: var(--border-w-thick);
+  stroke-linecap: round;
+}

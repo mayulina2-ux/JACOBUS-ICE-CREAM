@@ -1,0 +1,46 @@
+.frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  flex: none;
+  background: var(--surface-raised);
+  border: var(--border-w) solid var(--on-color);
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* Rectángulo dentro de tarjeta: radio concéntrico con el de la tarjeta */
+.card {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius-lg) - var(--space-4));
+}
+
+/* Bola: círculo con borde grueso y sombra dura, el pastel acaricia */
+.round {
+  width: var(--scoop-hero);
+  aspect-ratio: 1;
+  border-width: var(--border-w-thick);
+  border-radius: var(--radius-round);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--on-color);
+}
+
+.mini {
+  width: var(--scoop-mini);
+  aspect-ratio: 1;
+  border-radius: var(--radius-round);
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  border: 0;
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  background: var(--family-color);
+}

@@ -1,0 +1,180 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  background: var(--family-color);
+  color: var(--on-color);
+  border: var(--border-w-thick) solid var(--on-color);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+}
+
+.copy {
+  display: grid;
+  align-content: center;
+  gap: var(--space-4);
+}
+
+.kicker {
+  justify-self: start;
+  padding: var(--space-1) var(--space-3);
+  background: var(--on-color);
+  color: var(--family-color);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-display-xl-size);
+  line-height: var(--text-display-xl-leading);
+  letter-spacing: var(--text-display-xl-tracking);
+  text-wrap: balance;
+}
+
+.text {
+  max-width: var(--prose-max);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.scoop {
+  justify-self: center;
+}
+
+/* ---------- Barra de pestañas con progreso ---------- */
+.bar {
+  display: flex;
+  align-items: stretch;
+  background: var(--surface-raised);
+  color: var(--ink);
+  border-top: var(--border-w-thick) solid var(--on-color);
+}
+
+.tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(var(--day-card-w), 1fr);
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: 0;
+  border-right: var(--border-w) solid var(--border);
+  color: var(--ink-muted);
+  text-align: left;
+  cursor: pointer;
+}
+
+.tab:hover,
+.tab[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.tab:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-w));
+}
+
+.track {
+  display: block;
+  height: var(--space-1);
+  background: var(--surface);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+.progress {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-pink);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.done {
+  transform: scaleX(1);
+}
+
+/* Con movimiento reducido no hay animación: la pestaña activa se ve llena y no rota */
+.running {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .running {
+    animation: fill var(--story-duration) linear forwards;
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+@keyframes fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.tabLabel {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+.pause {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: var(--control-h);
+  padding: 0;
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: 0;
+  cursor: pointer;
+}
+
+.pause:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-w));
+}
+
+@media (min-width: 768px) {
+  .stage {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: var(--space-10);
+  }
+}

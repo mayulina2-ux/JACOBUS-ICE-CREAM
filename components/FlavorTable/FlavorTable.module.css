@@ -1,0 +1,31 @@
+.flavor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.swatch {
+  flex: none;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-round);
+  background: var(--family-color);
+}
+
+.link {
+  color: var(--ink);
+  font-weight: var(--weight-bold);
+  text-underline-offset: var(--space-1);
+}
+
+.link:hover {
+  color: var(--accent-text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}

@@ -1,0 +1,199 @@
+/* =========================================================================
+   JACOBUS ICE CREAM — Tokens de diseño (fuente de verdad)
+   «El neón grita, el pastel acaricia.»
+   Ningún componente escribe colores, tamaños ni radios a mano: todo sale de aquí.
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Color: superficies y tinta ---------- */
+  --surface: #fff6e0;          /* crema de vainilla */
+  --surface-raised: #ffffff;
+  --ink: #15111c;              /* texto, bordes y sombra dura */
+  --ink-muted: #5a4f66;
+  --on-color: #15111c;         /* texto sobre neón o pastel. Nunca blanco */
+
+  /* Cromo del esqueleto (header y footer). En claro es la tinta. */
+  --chrome: #15111c;
+  --on-chrome: #fff6e0;
+  --on-chrome-muted: #c9bed6;
+
+  /* ---------- Color: neones (solo como relleno) ---------- */
+  --neon-pink: #ff2e93;
+  --neon-lime: #c8ff1a;
+  --neon-cyan: #00e5ff;
+
+  /* ---------- Color: pasteles ---------- */
+  --pastel-pink: #ffc9df;
+  --pastel-mint: #bff3dc;
+  --pastel-lavender: #d9ccff;
+  --pastel-vanilla: #ffe9a8;
+
+  /* ---------- Color: estados y texto de acento ---------- */
+  --accent-text: #c4006b;
+  --border: var(--ink);
+  --focus-ring: #15111c;
+  --focus-ring-on-chrome: #c8ff1a; /* el anillo tinta no se vería sobre el header */
+  --danger: #b3001f;
+
+  /* ---------- Color temático por entidad (familias de sabor) ---------- */
+  --family-fresa: var(--pastel-pink);
+  --family-pistacho: var(--pastel-mint);
+  --family-violeta: var(--pastel-lavender);
+  --family-vainilla: var(--pastel-vanilla);
+  /* Valor por defecto; cada página lo sobrescribe en línea con la familia que toque. */
+  --family-color: var(--pastel-vanilla);
+
+  /* ---------- Tipografía: familias ---------- */
+  --font-display: var(--font-dela), "Arial Black", Impact, sans-serif;
+  --font-body: var(--font-bricolage), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, "Courier New", monospace;
+
+  --weight-regular: 400;
+  --weight-bold: 700;
+
+  /* ---------- Tipografía: escala ---------- */
+  /* display-xl 72/68, −0.02em (se escala en móvil con clamp) */
+  --text-display-xl-size: clamp(2.75rem, 1.6rem + 5.6vw, 4.5rem);
+  --text-display-xl-leading: 0.944;
+  --text-display-xl-tracking: -0.02em;
+  /* display 48/48, −0.01em */
+  --text-display-size: clamp(2.125rem, 1.6rem + 2.4vw, 3rem);
+  --text-display-leading: 1;
+  --text-display-tracking: -0.01em;
+  /* heading 28/32 */
+  --text-heading-size: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);
+  --text-heading-leading: 1.143;
+  /* body 16/24 */
+  --text-body-size: 1rem;
+  --text-body-leading: 1.5;
+  /* small 14/20 */
+  --text-small-size: 0.875rem;
+  --text-small-leading: 1.429;
+  /* label 12/16, 0.08em, MAYÚSCULAS */
+  --text-label-size: 0.75rem;
+  --text-label-leading: 1.333;
+  --text-label-tracking: 0.08em;
+  /* price 20/24 */
+  --text-price-size: 1.25rem;
+  --text-price-leading: 1.2;
+  /* Marca de agua gigante de las cabeceras tematizadas */
+  --text-watermark-size: clamp(5rem, 2rem + 14vw, 13rem);
+  /* Número de posición en tarjetas de ranking */
+  --text-rank-size: 3rem;
+
+  /* ---------- Espaciado ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;   /* ampliación: huecos internos de controles */
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;   /* ampliación: aire en héroes */
+  --space-10: 40px;
+  --space-16: 64px;  /* ampliación: héroes en escritorio */
+
+  /* ---------- Forma ---------- */
+  --radius-sm: 4px;      /* lado duro: etiquetas y bloques */
+  --radius-lg: 24px;     /* lado blando: tarjetas de sabor */
+  --radius-pill: 999px;  /* botones y chapas */
+  --radius-round: 50%;   /* flechas circulares y bolas */
+
+  --border-w: 2px;
+  --border-w-thick: 3px;
+  --focus-ring-w: 3px;
+  --focus-ring-offset: 2px;
+  --underline-w: 3px;
+
+  /* Sombra dura: siempre en tinta, nunca difusa */
+  --shadow-offset: 4px;
+  --shadow-offset-hover: 6px;
+  --shadow-hard: var(--shadow-offset) var(--shadow-offset) 0 0 var(--ink);
+  --shadow-hard-hover: var(--shadow-offset-hover) var(--shadow-offset-hover) 0 0 var(--ink);
+  --shadow-none: 0 0 0 0 var(--ink);
+  --lift: -2px;
+
+  /* ---------- Patrón de marca: damero ---------- */
+  --checker-step: 16px;
+  --checker-tile: 32px;
+  --checker-band: 32px;
+  --checker-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect width='16' height='16'/%3E%3Crect x='16' y='16' width='16' height='16'/%3E%3C/svg%3E");
+
+  /* ---------- Layout ---------- */
+  --container-max: 1280px;
+  --gutter: var(--space-4);
+  --header-h: 64px;
+  --sidebar-w: 320px;
+  --control-h: 44px;       /* objetivo táctil mínimo */
+  --control-h-sm: 36px;
+  --arrow-size: 44px;
+  --icon-size: 24px;
+  --swatch-size: 14px;
+  --vitrina-card-w: 236px;
+  --flavor-card-w: 248px;
+  --media-card-w: 280px;
+  --day-card-w: 88px;
+  --prose-max: 62ch;
+  --table-min-w: 860px;
+  --scoop-hero: clamp(120px, 32vw, 340px);
+  --scoop-card: 120px;
+  --scoop-mini: 28px;
+  --map-h: 180px;
+
+  /* ---------- Movimiento ---------- */
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --story-duration: 7s;
+  --skeleton-duration: 1.2s;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ---------- Capas ---------- */
+  --z-sticky: 50;
+  --z-popover: 80;
+  --z-overlay: 100;
+
+  /* ---------- Opacidades ---------- */
+  --watermark-opacity: 0.14;
+  --skeleton-low: 0.45;
+}
+
+/* ---------- Tema oscuro (regaliz) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface: #15111c;
+    --surface-raised: #221b2c;
+    --ink: #fff6e0;
+    --ink-muted: #c9bed6;
+    --on-color: #15111c;
+    --chrome: #221b2c;
+    --on-chrome: #fff6e0;
+    --on-chrome-muted: #c9bed6;
+    --accent-text: #ff5cab;
+    --focus-ring: #c8ff1a;
+    --danger: #ff6b7f;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #15111c;
+  --surface-raised: #221b2c;
+  --ink: #fff6e0;
+  --ink-muted: #c9bed6;
+  --on-color: #15111c;
+  --chrome: #221b2c;
+  --on-chrome: #fff6e0;
+  --on-chrome-muted: #c9bed6;
+  --accent-text: #ff5cab;
+  --focus-ring: #c8ff1a;
+  --danger: #ff6b7f;
+}
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+  }
+}

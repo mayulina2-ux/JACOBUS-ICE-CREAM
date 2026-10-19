@@ -1,0 +1,150 @@
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+}
+
+.breadcrumb a {
+  color: inherit;
+  text-underline-offset: var(--space-1);
+}
+
+.line {
+  display: block;
+}
+
+.photo {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.credit {
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+.credit a {
+  color: inherit;
+  text-underline-offset: var(--space-1);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tagline {
+  font-weight: var(--weight-bold);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.ficha {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.sizes {
+  width: 100%;
+  max-width: var(--prose-max);
+  border-collapse: collapse;
+}
+
+.sizes caption {
+  text-align: left;
+  padding-bottom: var(--space-2);
+}
+
+.sizes th,
+.sizes td {
+  padding: var(--space-3) 0;
+  border-bottom: var(--border-w) solid var(--border);
+  text-align: left;
+  font-weight: var(--weight-regular);
+}
+
+.sizes td {
+  text-align: right;
+}
+
+.ingredients {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--prose-max);
+}
+
+.ingredientList {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-6);
+  list-style: decimal;
+}
+
+.ingredientList li::marker {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+}
+
+.allergens {
+  color: var(--danger);
+}
+
+.pairings {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.pairing {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface-raised);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.pairing a {
+  color: inherit;
+  text-underline-offset: var(--space-1);
+}
+
+/* ---------- Índice de sabores ---------- */
+.familyBlock {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.familyHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.familyHead a {
+  color: var(--accent-text);
+  font-weight: var(--weight-bold);
+  text-underline-offset: var(--space-1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--flavor-card-w), 1fr));
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .pairings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

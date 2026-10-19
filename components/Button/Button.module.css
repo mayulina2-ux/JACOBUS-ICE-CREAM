@@ -1,0 +1,62 @@
+.button {
+  composes: pressable from "../../styles/pressable.module.css";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-h);
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-leading);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sm {
+  min-height: var(--control-h-sm);
+  padding: 0 var(--space-4);
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+/* Primario: el neón protagonista. Texto siempre en on-color. */
+.primary {
+  background: var(--neon-pink);
+  color: var(--on-color);
+}
+
+/* Secundario: outline con borde de 3 px */
+.secondary {
+  background: transparent;
+  color: var(--ink);
+  border-width: var(--border-w-thick);
+}
+
+/* Ghost: sin caja hasta que lo tocas */
+.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: transparent;
+  box-shadow: var(--shadow-none);
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-w);
+  text-underline-offset: var(--space-1);
+}
+
+.ghost:hover {
+  border-color: var(--border);
+  text-decoration: none;
+}
+
+/* Botones dentro de un bloque de color: tinta fija para no perder contraste en oscuro */
+:global(.on-color) .secondary,
+:global(.on-color) .ghost {
+  color: var(--on-color);
+}
+
+:global(.on-color) .secondary {
+  border-color: var(--on-color);
+}

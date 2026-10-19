@@ -1,0 +1,20 @@
+/* El damero se pinta con una máscara SVG sobre un relleno plano en --ink:
+   sin degradados y el color sigue saliendo del token. */
+.stripe {
+  width: 100%;
+  background-color: var(--ink);
+  -webkit-mask-image: var(--checker-mask);
+  mask-image: var(--checker-mask);
+  -webkit-mask-size: var(--checker-tile) var(--checker-tile);
+  mask-size: var(--checker-tile) var(--checker-tile);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+
+.band {
+  height: var(--checker-band);
+}
+
+.thin {
+  height: var(--checker-step);
+}

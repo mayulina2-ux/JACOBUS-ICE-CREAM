@@ -1,0 +1,48 @@
+.tabs {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.list {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  border-bottom: var(--border-w) solid var(--border);
+  scrollbar-width: none;
+}
+
+.tab {
+  flex: none;
+  min-height: var(--control-h);
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: var(--underline-w) solid transparent;
+  margin-bottom: calc(-1 * var(--border-w));
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+/* Pestaña activa: subrayado neón de 3 px y texto en tinta */
+.tab[aria-selected="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--neon-pink);
+}
+
+.tab:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-w));
+}
+
+.panel:focus-visible {
+  outline-offset: var(--space-2);
+}

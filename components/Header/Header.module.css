@@ -1,0 +1,223 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--chrome);
+  color: var(--on-chrome);
+  border-bottom: var(--border-w-thick) solid var(--border);
+}
+
+/* Anillo lima solo en lo que se pinta sobre el cromo; el panel de cuadrícula usa el normal */
+.logo:focus-visible,
+.navLink:focus-visible,
+.iconButton:focus-visible,
+.cta:focus-visible {
+  outline-color: var(--focus-ring-on-chrome);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: var(--container-max);
+  height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* «JACOBUS» compuesto en la display (Dela Gothic One), sin logo todavía */
+.logo {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-size);
+  line-height: var(--text-heading-leading);
+  letter-spacing: var(--text-display-tracking);
+  color: var(--on-chrome);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  height: var(--header-h);
+  padding-inline: var(--space-3);
+  border-bottom: var(--underline-w) solid transparent;
+  color: var(--on-chrome);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-body-size);
+  text-decoration: none;
+}
+
+.navLink:hover {
+  border-bottom-color: var(--on-chrome-muted);
+}
+
+.navLink[aria-current="page"] {
+  border-bottom-color: var(--neon-pink);
+}
+
+.navLink:focus-visible {
+  outline-offset: calc(-1 * var(--focus-ring-w));
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: var(--control-h);
+  height: var(--control-h);
+  padding: 0 var(--space-2);
+  background: transparent;
+  color: var(--on-chrome);
+  border: var(--border-w) solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small-size);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.iconButton:hover,
+.iconButton[aria-expanded="true"] {
+  border-color: var(--on-chrome);
+}
+
+.iconLabel {
+  display: none;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+/* El CTA no hereda el anillo lima: se pinta sobre el cromo y ya se ve */
+.cta {
+  border-color: var(--on-color);
+  box-shadow: var(--shadow-none);
+}
+
+.cta:hover {
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--on-chrome);
+}
+
+/* ---------- Menú de cuadrícula ---------- */
+.gridWrap {
+  position: relative;
+}
+
+.gridPanel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-3));
+  z-index: var(--z-popover);
+  width: min(calc(100vw - 2 * var(--gutter)), var(--table-min-w));
+  max-width: calc(var(--media-card-w) * 2);
+  padding: var(--space-4);
+  background: var(--surface-raised);
+  color: var(--ink);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-hard);
+}
+
+.gridPanel[hidden] {
+  display: none;
+}
+
+.gridTitle {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.gridLink {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.gridLink:hover {
+  background: var(--pastel-vanilla);
+  color: var(--on-color);
+}
+
+.gridLabel {
+  font-weight: var(--weight-bold);
+}
+
+.gridText {
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+}
+
+.burger {
+  margin-left: calc(-1 * var(--space-2));
+}
+
+@media (min-width: 768px) {
+  .desktopOnly {
+    display: inline-flex;
+  }
+
+  .gridWrap.desktopOnly {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .logo {
+    margin-right: var(--space-4);
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1280px) {
+  .iconLabel {
+    display: inline;
+  }
+
+  .iconButton {
+    padding-inline: var(--space-3);
+  }
+}

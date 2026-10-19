@@ -1,0 +1,75 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: var(--border-w) solid var(--border);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pill {
+  border-radius: var(--radius-pill);
+  padding-inline: var(--space-3);
+}
+
+.block {
+  border-radius: var(--radius-sm);
+}
+
+.neutral {
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+
+/* Sobre neón y pastel, texto y borde en on-color */
+.pink,
+.lime,
+.cyan,
+.family {
+  color: var(--on-color);
+  border-color: var(--on-color);
+}
+
+.pink {
+  background: var(--neon-pink);
+}
+
+.lime {
+  background: var(--neon-lime);
+}
+
+.cyan {
+  background: var(--neon-cyan);
+}
+
+.family {
+  background: var(--family-color);
+}
+
+.ink {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+/* Alérgenos: el rojo solo como estado, en texto y borde */
+.danger {
+  background: var(--surface-raised);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+/* Agotado: tachado, sin color */
+.off {
+  background: var(--surface-raised);
+  color: var(--ink-muted);
+  border-style: dashed;
+  border-color: var(--ink-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: var(--border-w);
+}

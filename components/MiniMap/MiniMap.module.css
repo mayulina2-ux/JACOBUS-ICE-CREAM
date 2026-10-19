@@ -1,0 +1,52 @@
+.map {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-height: var(--map-h);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.ground {
+  fill: var(--surface);
+}
+
+.park {
+  fill: var(--pastel-mint);
+  stroke: var(--ink);
+  stroke-width: var(--border-w);
+}
+
+.street {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: var(--space-2);
+}
+
+.streetName {
+  fill: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-label-size);
+  letter-spacing: var(--text-label-tracking);
+}
+
+.pin path {
+  fill: var(--neon-pink);
+  stroke: var(--on-color);
+  stroke-width: var(--border-w-thick);
+}
+
+.pinDot {
+  fill: var(--on-color);
+}
+
+.caption {
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-leading);
+  color: var(--ink-muted);
+}

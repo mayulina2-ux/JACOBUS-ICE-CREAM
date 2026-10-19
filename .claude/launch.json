@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jacobus-dev",
+      "runtimeExecutable": "C:\\Users\\Alumno\\node-portable\\node-v22.23.3-win-x64\\node.exe",
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev", "-p", "3000"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+/* Estados compartidos de todo lo que se pulsa: borde, sombra dura,
+   hover (sube y la sombra crece), activo (se hunde) y disabled.
+   Se usa con `composes: pressable from "../../styles/pressable.module.css"`. */
+
+.pressable {
+  border: var(--border-w) solid var(--border);
+  box-shadow: var(--shadow-hard);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.pressable:hover {
+  transform: translate(var(--lift), var(--lift));
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.pressable:active {
+  transform: translate(var(--shadow-offset), var(--shadow-offset));
+  box-shadow: var(--shadow-none);
+}
+
+.pressable:disabled,
+.pressable[aria-disabled="true"] {
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-none);
+  border-style: dashed;
+  background: var(--surface-raised);
+  color: var(--ink-muted);
+}
